@@ -1,0 +1,10 @@
+#!/bin/bash
+# read from file given as argv[1] ($1) and print factors for each num in file
+
+FILE=$1
+
+while read NUM
+do
+    rsa=($(factor $NUM))
+    echo "$NUM=$(($NUM/${rsa[1]}))*${rsa[1]}"
+done < $FILE
